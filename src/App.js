@@ -7,6 +7,7 @@ import Service from "./CardSubmitBar/Pages/Service";
 import ShippingInfo from "./CardSubmitBar/Pages/ShippingInfo ";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import Login from "./Components/User.Auth/Login";
+import Register from "./Components/User.Auth/Register";
 import AuthProvider from "./Firebase/Context/AuthProvider";
 import AboutRobograding from './Page/AboutRobograding';
 import DashboardHed from "./Page/DashboardHed";
@@ -27,9 +28,10 @@ function App() {
             <Route path="/about-robograding" component={AboutRobograding}/>  
             <Route path="/robograding" component={WhyRobograding}/>  
             <Route path="/Priceing" component={Priceing}/>  
-            <Route path="/dashboard" component={DashboardHed}/>  
+            <PrivateRoute path="/dashboard" component={DashboardHed}/>  
             <Route path="/feed" component={FeedDashboardPage}/> 
             <Route path="/login" component={Login}/>  
+            <Route path="/register" component={Register}/>  
             <PrivateRoute path="/Service" component={Service}/>
             <PrivateRoute path="/cards" component={Cart}/>
             <PrivateRoute path="/payment" component={Payment}/>

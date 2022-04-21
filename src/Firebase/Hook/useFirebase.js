@@ -25,7 +25,7 @@ const useFirebase = () => {
         const newUser = { email, displayName: name,phone,addres,history};
         setUser(newUser);
         // save User to the database  
-        saveUser(email, name,phone,addres, 'POST');
+        saveUser(email, name,'POST', phone,addres);
         // name with Firebase
         updateProfile(auth.currentUser, {
           displayName: name,
@@ -67,7 +67,7 @@ const useFirebase = () => {
       .then((result) => {
         // user data save or update
         const user = result.user;
-        saveUser(user.email, user.displayName, 'PUT');
+        saveUser(user.email, user.displayName, 'POST');
         const destination = location?.state?.from || "/";
         history.replace(destination);
         setError("");
@@ -104,9 +104,11 @@ const useFirebase = () => {
   };
 
   // save User to the database
-  const saveUser = (email, displayName,phone,addres,method) => {
-    const user = { email, displayName, addres, phone};
-    fetch("users", {
+  const saveUser = (email, displayName,method,phone,addres) => {
+    
+    const user = { email, displayName, addres, phone, method};
+    console.log("user", user)
+    fetch("http://localhost:5000/api/v1/users", {
       method: method,
       headers: {
         "content-type": "application/json",
@@ -120,6 +122,8 @@ const useFirebase = () => {
     .then(res => res.json())
     .then(data => setAdmin(data.admin))
   }, [user.email])
+
+
   return {
     user,
     registerUser,
