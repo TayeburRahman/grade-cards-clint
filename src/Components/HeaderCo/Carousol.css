@@ -1,0 +1,15 @@
+ .fontbolt{
+     margin-top: 10px;
+    font-weight: 500;
+    margin-left: 25px;
+    text-align: left;
+ }
+ button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right {
+    margin-top: -50px;
+    z-index: 100;
+}
+button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--left {
+    margin-top: -50px;
+    z-index: 100;
+
+}

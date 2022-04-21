@@ -1,0 +1,252 @@
+.fastRow {
+  top: 0;
+  bottom: 0;
+  position: relative;
+  background: linear-gradient(106.54deg, #140078 -4.67%, #6c31bc 112.32%);
+  height: 300px;
+  border-bottom: 2px solid #20bfb8;
+}
+
+.logoContainer {
+  padding: 25px 70px;
+}
+.logo {
+  top: 25px;
+  left: -60px;
+}
+.logo img {
+  width: 90%;
+}
+.userImage {
+}
+.text {
+  position: absolute;
+  color: white;
+  top: 200px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.167;
+  letter-spacing: -0.01562em;
+}
+
+.CheckoutStepsMainPage {
+  position: absolute;
+  top: 225px;
+}
+.checkout-progress div {
+  box-sizing: border-box;
+}
+
+.checkout-progress {
+  display: block;
+  clear: both;
+  margin: 20px auto;
+  width: auto;
+  font-family: sans-serif;
+  overflow: auto;
+}
+
+.step {
+  margin: 0;
+  border: 0;
+  letter-spacing: 1px;
+  line-height: 30px;
+  padding: 5px 10px 5px 15px;
+  color: grey;
+  text-decoration: none;
+  cursor: default;
+  font-weight: bold;
+  float: left;
+  height: auto;
+}
+
+.triangle2-active {
+  background-color: rgb(32, 191, 184);
+  border-radius: 50px;
+}
+
+.triangle2-active ::before {
+  background-color: rgb(32, 191, 184);
+  color: white;
+}
+.active-step {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.triangle-active {
+}
+
+.triangle2-active {
+  color: rgb(32, 191, 184);
+  font-size: x-large;
+  width: 55%;
+  border: 2px solid rgb(32, 191, 184);
+  padding: 5px;
+}
+.triangle2-active-Cards {
+  width: 70%;
+}
+
+.triangle2-incomplete {
+  font-size: x-large;
+  color: rgb(32, 191, 184);
+  background-color: white;
+  width: 65%;
+  border: 2px solid rgb(32, 191, 184);
+  padding: 5px;
+  border-radius: 50px;
+}
+
+.lastSection {
+  display: flex;
+  align-items: center;
+  padding: 50px;
+}
+.jss60 {
+  font-size: 16px;
+  font-style: normal;
+  font-family: Roboto;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+}
+.h2-style {
+  font-size: 24px;
+  font-style: normal;
+  text-align: left;
+  font-family: Roboto;
+  font-weight: 400;
+  line-height: 36px;
+  margin-bottom: 6px;
+  letter-spacing: 0px;
+}
+.text h2 {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+
+.smHedingText {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 16px;
+  font-style: normal;
+  font-family: Roboto;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  text-align: left !important;
+}
+/* .MuiPaper-root {
+  height: 200px;
+} */
+
+.gridItem {
+  justify-items: center;
+}
+.WidthShPy {
+  width: 50%;
+}
+.widthReview {
+  width: 60%;
+}
+.disabledBtn {
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+.imgCrt {
+  width: 50% !important;
+  margin-left: 15px;
+}
+/* pay Method */
+#saveSpan {
+  font-weight: 500;
+  letter-spacing: 0.00714em;
+  color: rgb(32, 191, 184);
+  margin: -8px;
+}
+.radio:checked ~ #plan-details {
+  border-color: var(--color-green);
+  background: #6a00ff;
+  color: white;
+  border: none;
+}
+/* Payment */
+#PaymentRadio {
+  font-size: inherit;
+  margin: 0;
+  position: absolute;
+  margin: 0;
+  left: 0;
+  margin: 0px 0px 0px 15px;
+  margin-top: 3px !important;
+}
+#radioBoder {
+  border: none;
+}
+.marginTop10 {
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .lastSection {
+    padding: 1px !important;
+    margin: 1px !important;
+  }
+  .logoContainer {
+    padding: 25px 25px;
+  }
+  .logoContainer img {
+    width: 80%;
+  }
+  .triangle2-active {
+    font-size: large;
+    width: 45%;
+  }
+
+  .triangle2-active {
+    font-size: large;
+    width: 55%;
+  }
+  .triangle2-active-Cards {
+    width: 65%;
+  }
+  .triangle2-incomplete {
+    font-size: 20px;
+  }
+  .WidthShPy {
+    font-size: large;
+    width: 47%;
+  }
+  .widthReview {
+    font-size: large;
+    width: 52%;
+  }
+  .step.active-step {
+    font-size: 12px;
+  }
+  .step.incomplete {
+    font-size: 13px;
+  }
+  .gridItem {
+    margin: 0px 0px 0px -10px;
+  }
+
+  .selecter {
+    width: 100%;
+  }
+  .wt-98 {
+    width: 98%;
+  }
+  #addresCostom {
+    width: 98%;
+  }
+}

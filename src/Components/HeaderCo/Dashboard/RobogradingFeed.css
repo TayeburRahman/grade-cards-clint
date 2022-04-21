@@ -1,0 +1,202 @@
+.row {
+  --bs-gutter-x: 0rem !important;
+}
+.feedBanner {
+  align-items: center !important;
+  background-color: #160056;
+}
+.textBannerDiv {
+  justify-content: center;
+}
+.FBText {
+  text-align: left;
+  width: 85%;
+  color: white;
+}
+/* ------------------- */
+.feedCardMain {
+  background: linear-gradient(103.29deg, #140078 -18.4%, #6c31bc 112.42%);
+}
+.tabMain {
+  background: none !important;
+}
+.tabLink {
+  text-decoration: none;
+  color: white;
+}
+.tableRow {
+  align-items: center;
+}
+.tableRow:hover {
+  color: wheat;
+}
+.colorWhite {
+  color: white;
+}
+.priceBg {
+  background: #42e8e0;
+  width: 70%;
+  border-radius: 5px;
+  color: #222222;
+}
+.imageCard {
+  border: 2px solid rebeccapurple;
+  border-radius: 5px;
+}
+.Pagination {
+  background-color: #42e8e03f;
+  font-weight: 700 !important;
+  border-bottom: 0px !important;
+}
+.customWhd2 {
+  width: 10% !important;
+}
+.customWhd1 {
+  width: 60%;
+}
+/* ---------------------- */
+.feed-view__header {
+  overflow: hidden;
+  padding-top: 86px;
+  position: relative;
+}
+.feed-view__header__overlay {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.feed-view__header__overlay-background {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  max-width: 100%;
+}
+.feed-view__header__overlay-color {
+  backdrop-filter: saturate(180%) blur(10px);
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 3;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.feed-view__header__container {
+  display: flex;
+  position: relative;
+  z-index: 3;
+}
+.feed-view__card-holder {
+  width: 254px;
+}
+.feed-view__header__content {
+  align-items: center;
+  color: #fff;
+  display: flex;
+  max-width: calc(100% - 254px);
+  min-height: 142px;
+  padding: 24px 0 24px 24px;
+  width: 100%;
+}
+
+/* ------*/
+.dFlex {
+  display: flex !important;
+}
+.feed-view__image {
+  width: 254px !important;
+  justify-content: flex-end !important;
+}
+.feed_card-image {
+  width: 85%;
+  margin-top: -150px;
+}
+.feed-view__card-image {
+  border-radius: 4%;
+  box-shadow: 0 2px 2px rgb(0 0 0 / 14%), 0 3px 1px rgb(0 0 0 / 12%),
+    0 1px 5px rgb(0 0 0 / 20%);
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+.feed-view__details {
+  display: flex !important;
+  padding-left: 24px;
+  padding-top: 24px;
+  width: 50%;
+}
+.fontW400 {
+  font-weight: 400 !important;
+}
+/* --------- */
+.Printed__Total {
+  margin-left: 40px;
+  margin-right: 40px;
+  border-radius: 10px;
+  background: linear-gradient(143.61deg, #140078 -85.42%, #6c31bc 89.96%);
+  color: white;
+  width: 214px !important;
+  display: grid;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.Overall__Grade {
+  width: 75%;
+  border-radius: 10px;
+  background: linear-gradient(143.61deg, #140078 -85.42%, #6c31bc 89.96%);
+  color: white;
+}
+.Feed__Weaknesses {
+  margin-left: 40px;
+}
+@media screen and (max-width: 767.95px) {
+  .feed-view__card-holder {
+    display: none;
+  }
+  .feed_card-image {
+    margin-top: 10px;
+    width: 85%;
+  }
+  .feed-view__header__content {
+    max-width: none;
+  }
+  .dFlex {
+    display: grid !important;
+  }
+  .feed-view__image {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  .feed-view__details {
+    width: 100% !important;
+  }
+  .feed-view-tbl {
+    width: 40% !important;
+  }
+  .priceSection {
+    display: grid !important;
+  }
+  .Printed__Total {
+    width: 90% !important;
+    margin-left: 20px !important;
+    margin-bottom: 20px !important;
+  }
+  .Overall__Grade {
+    width: 90% !important;
+    margin-left: 20px !important;
+  }
+  .Feed__Weaknesses {
+    margin-left: 20px;
+  }
+}

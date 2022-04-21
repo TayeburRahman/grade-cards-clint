@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Ubuntu&display=swap');
+
+.textHead{
+    font-weight: 600 !important;
+    font-size: 2.325rem !important;
+    color: #262432 !important;
+}
+#fontWeight {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+#colorWhite{
+    color:white !important;
+}

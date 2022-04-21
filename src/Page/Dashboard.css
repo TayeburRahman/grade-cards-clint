@@ -1,0 +1,40 @@
+.w35d {
+  width: 32% !important;
+  display: flex;
+}
+.MuiDrawer-paper {
+  padding: 40px 40px 0px 60px;
+  width: 32% !important;
+  top: auto !important;
+  border-right: none !important;
+}
+.Boxpaper {
+  height: 200px;
+  border: 1px solid black;
+}
+.flexStart {
+  width: 100% !important;
+  justify-content: flex-start !important;
+  text-transform: initial !important;
+  font-size: initial !important;
+  height: 50px !important;
+}
+#buttonHover:hover {
+  background: rgb(188, 215, 221);
+  border-radius: 0px;
+  color: aliceblue !important;
+}
+.iconColor {
+  color: rgba(24, 15, 51, 0.616);
+}
+.contoler {
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  margin-top: -10px !important;
+}
+
+@media only screen and (max-width: 1024px) {
+  .w35d {
+    display: none !important;
+  }
+}

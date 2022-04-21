@@ -1,0 +1,13 @@
+.footerBg{
+    background: black;
+}
+.icon-box{
+    background: white;
+    height: 50px;
+    border-radius: 50px;
+    width: 50px;
+ }
+ .icon-box:hover{
+    background: rgb(196, 196, 196);
+    
+ }

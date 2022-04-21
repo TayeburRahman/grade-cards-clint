@@ -1,0 +1,78 @@
+.textRight {
+  text-align: right !important;
+}
+.boxShadow {
+  align-items: center !important;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.gridSystem {
+  display: grid;
+  justify-items: center !important;
+}
+.centerI {
+  align-items: center !important;
+}
+.editButton {
+  min-width: 0px !important;
+  padding: 0px !important;
+  color: rgb(10, 189, 186) !important;
+}
+.radius10 {
+  border-radius: 10px;
+}
+.weight500 {
+  font-weight: 500;
+}
+/* CSS */
+.button-18 {
+  align-items: center;
+  background-color: rgb(10, 189, 186);
+  border: 0;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto,
+    "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell,
+    "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  justify-content: center;
+  font-family: unset;
+  max-width: 480px;
+  min-height: 40px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+}
+
+.button-18:hover,
+.button-18:focus {
+  background-color: rgb(10, 189, 186);
+  color: #ffffff;
+}
+
+.button-18:active {
+  background: #571ddd;
+  color: rgba(255, 255, 255, 0.996);
+}
+
+.button-18:disabled {
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, 0.08);
+  color: rgba(0, 0, 0, 0.3);
+}
