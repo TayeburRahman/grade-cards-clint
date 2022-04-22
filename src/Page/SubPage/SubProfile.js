@@ -1,19 +1,23 @@
-import { Button, ListItem, Typography } from '@mui/material';
+import { Avatar, Button, ListItem, ListItemAvatar, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../Firebase/Hook/useAuth';
 import OpenModelTextF from './OpenModelTextF';
 
+
+
+ 
 
 const SubProfile = () => {
   const [open, setOpen] = useState(false);
   const [update, setUpdate] = useState()
   const [uiText, setUiText] = useState() 
   const [value, setValue]= useState('')
- 
-   
-
+  const [valuePass, setValuePass]= useState('')
+  const [passAlert, setAlert]= useState('')
   const {user} = useAuth()
   const [users, setUser] =useState()   
+ 
+  // ------------------------------
 
   useEffect(() => {
     fetch(`http://localhost:5000/api/v1/users/${user.email}`)
@@ -28,47 +32,55 @@ const SubProfile = () => {
   };
   const handleClose = () => {
     setOpen(false);
+    setAlert('') 
   };
-
   
-
 
   const onSubmit = (dt) => {   
 
-
      if(update === 'displayName'){
-      return users.uses.displayName = value
+       users.uses.displayName = value
      } else if(update === 'userName'){
-      return users.user.userName = value
+     users.user.userName = value
      }else if(update === "password"){
-      return users.user.password = value
+       if(users?.user?.password){
+         if(valuePass === users?.user?.password){
+          users.user.password = value
+          setAlert('Password Successfully Update')
+         }else{
+           setAlert('Password is no Massing')
+           return;
+         }
+       }else{
+        users.user.password = value
+       }
+       
      }else{
-      return users.user.phone = value
+       users.user.phone = value
      }
 
-    console.log("data",users) 
     
     fetch(`http://localhost:5000/api/v1/users/${user.email}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(users),
+      body: JSON.stringify(users.user),
     })
       .then((res) => res.json())
       .then((result) => { 
         if (result.insertedId) {
-         
           alert("Your Order Successfully Send"); 
         } 
       })
-
       handleClose()
+      
   };
 
   
-
-  
+const pass = users?.user?.password?.length 
+const count = '*' * pass
+console.log(count) 
     return (
     <div className="d-grid mt-3" style={{justifyItems: 'center'}}>
         <div className='col-12 row d-flex boxShadow'>
@@ -86,16 +98,16 @@ const SubProfile = () => {
            Basic Info
            </Typography>
            <div className='col-12 p-3'>
-               <div className='row d-flex centerIp'>
+               <div className='row d-flex centerIp'  style={{alignItems: 'center'}}>
                    <div className='col-3'> 
                      <Typography variant="overline" display="block" gutterBottom>
                      PHOTO
                      </Typography>
                    </div>
                    <div className='col-7'> 
-                     <Typography variant="body2" display="block" gutterBottom>
-                      
-                     </Typography>
+                      <ListItemAvatar align="right">
+                       <Avatar alt="Remy Sharp" src={user.photoURL} />
+                     </ListItemAvatar>
                    </div>
                    <div className='col-2'> 
  
@@ -103,7 +115,7 @@ const SubProfile = () => {
                    </div>
                </div>
                <hr></hr>
-               <div className='row d-flex centerIp'>
+               <div className='row d-flex centerIp'  style={{alignItems: 'center'}}>
                    <div className='col-3'> 
                      <Typography variant="overline" display="block" gutterBottom>
                       NAME
@@ -111,15 +123,15 @@ const SubProfile = () => {
                    </div>
                    <div className='col-7'> 
                      <Typography variant="body2" display="block" gutterBottom>
-                     {users?.user?.displayName}
+                     { user?.displayName}
                      </Typography>
                    </div>
                    <div className='col-2'> 
-                   <Button variant="text" className='editButton' onClick={() => handleClickOpen('displayName',"Full Name")}>Eadt</Button>
+                   {/* <Button variant="text" className='editButton' onClick={() => handleClickOpen('displayName',"Full Name")}>Eadt</Button> */}
                    </div>
                </div>
                <hr></hr>
-               <div className='row d-flex centerIp'>
+               <div className='row d-flex centerIp'  style={{alignItems: 'center'}}>
                    <div className='col-3'> 
                      <Typography variant="overline" display="block" gutterBottom>
                      USERNAME
@@ -131,18 +143,18 @@ const SubProfile = () => {
                      </Typography>
                    </div>
                    <div className='col-2'> 
-                   <Button variant="text" className='editButton' onClick={() => handleClickOpen('userName','User Name')}>Add</Button>
+                   <Button variant="text" className='editButton' onClick={() => handleClickOpen('userName','User Name')}>{users?.user?.userName ? "Edit" : "Add" }</Button>
                    </div>
                </div>
                <hr></hr>
-               <div className='row d-flex centerIp'>
+               <div className='row d-flex centerIp'  style={{alignItems: 'center'}}>
                    <div className='col-3'> 
                      <Typography variant="overline" display="block" gutterBottom>
-                     PASSWORD
+                        Password
                      </Typography>
                    </div>
                    <div className='col-7'> 
-                   <ListItem type="password" > { users?.user?.password ? users.user?.password  : "******"} </ListItem>  
+                   <ListItem type="password" > ****** </ListItem>  
                    </div>
                    <div className='col-2'> 
                    <Button variant="text" className='editButton' onClick={() => handleClickOpen('password',"Password")}>Eadt</Button>
@@ -150,7 +162,7 @@ const SubProfile = () => {
                    </div>
                </div>
                <hr></hr>
-               <div className='row d-flex centerIp'>
+               <div className='row d-flex centerIp'  style={{alignItems: 'center'}}>
                    <div className='col-3'> 
                      <Typography variant="overline" display="block" gutterBottom>
                      CUSTOMER ID
@@ -173,7 +185,7 @@ const SubProfile = () => {
           Contact Info
            </Typography>
            <div className='col-12 p-3'>
-               <div className='row d-flex centerIp'>
+               <div className='row d-flex centerIp'  style={{alignItems: 'center'}}>
                    <div className='col-3'> 
                      <Typography variant="overline" display="block" gutterBottom>
                        EMAIL
@@ -190,7 +202,7 @@ const SubProfile = () => {
                      </Typography>
                    </div>
                </div>
-               <div className='row d-flex centerIp'>
+               <div className='row d-flex centerIp'  style={{alignItems: 'center'}}>
                    <div className='col-3'> 
                      <Typography variant="overline" display="block" gutterBottom>
                        PHONE
@@ -202,11 +214,11 @@ const SubProfile = () => {
                      </Typography>
                    </div>
                    <div className='col-2'> 
-                   <Button variant="text" className='editButton' onClick={() => handleClickOpen('phone',"Phone")}>Eadt</Button>
+                   <Button variant="text" className='editButton' onClick={() => handleClickOpen('phone',"Phone")}>{users?.user?.phone ? "Edit" : "Add" }</Button>
                    </div>
                </div>
             </div>
-            <OpenModelTextF handleClose={handleClose} update={update} setValue={setValue} uiText={uiText} onSubmit={onSubmit}  open={open}></OpenModelTextF>
+            <OpenModelTextF handleClose={handleClose} passAlert={passAlert} setValuePass={setValuePass} update={update} value={value} setValue={setValue} uiText={uiText} onSubmit={onSubmit}  open={open}></OpenModelTextF>
         </div>
     </div>
     );

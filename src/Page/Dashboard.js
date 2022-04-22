@@ -10,11 +10,11 @@ import Drawer from '@mui/material/Drawer';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import {
-  Link,
-  Route,
-  Switch,
+  Link, Switch,
   useRouteMatch
 } from "react-router-dom";
+import PrivateRoute from '../Components/PrivateRoute/PrivateRoute';
+import useAuth from '../Firebase/Hook/useAuth';
 import profileComon from '../image/profile-comon.svg';
 import './Dashboard.css';
 import SubCard from './SubPage/SubCard';
@@ -26,14 +26,16 @@ import SubWallet from './SubPage/SubWallet';
 
 export const useFeed= ()=>{
   let { path, url } = useRouteMatch(); 
+
   return{
     path
   }
 }
 export default function Dashboard() {
   let { path, url } = useRouteMatch(); 
+  const {user,logOut} = useAuth()
   return (
-    <Box sx={{ display: 'flex' }} >
+    <Box sx={{ display: 'flex', justifyContent: 'normal' }} >
       <CssBaseline />
        <div className='w35d'>
        <Drawer
@@ -48,23 +50,38 @@ export default function Dashboard() {
         anchor="left"
       >
         <div className='contoler pb-3'>
-        <div className='row mt-3 mb-2'>
+        <div className='row mt-3 mb-2 d-flex' style={{alignItems: 'center'}}>
          <div className='col-3'>
-         <img
-        src={profileComon} 
-        alt='profile12'
-        loading="lazy"
-        width='100%'
-      />
+           {
+             user.photoURL ?
+
+             <img
+             style={{borderRadius:"50%"}}
+             src={user.photoURL } 
+             alt='profile12'
+             loading="lazy"
+             width='80%'
+           /> :
+           <img
+           src={profileComon} 
+           alt='profile12'
+           loading="lazy"
+           width='100%'
+         />
+
+           }
+         
          </div>
-         <div className='col-9'>
+         <div className='col-9 textLeft'>
            <Typography  className='textLeft' variant="h6" gutterBottom component="div">
-             Tayebur Rahman
+             {user.displayName}
            </Typography>
-            <Link href="#"  underline="hover">
-            <Typography className='textLeft' variant="button" display="block" gutterBottom>
+            <Link href="#" underline="hover">
+              <Button  className='textLeft' onClick={logOut}>
+             <Typography className='textLeft' variant="button" display="block" gutterBottom>
               SING OUT
             </Typography>
+             </Button>
             </Link>
          </div>
        </div>    
@@ -115,18 +132,18 @@ export default function Dashboard() {
         sx={{ flexGrow: 1, bgcolor: 'background.default', p: 2 }}
       >
       <Switch>
-        <Route exact path={`${path}`}>
+        <PrivateRoute exact path={`${path}`}>
           <Submissions></Submissions>
-        </Route>
-        <Route path={`${path}/cards`}>
+        </PrivateRoute>
+        <PrivateRoute path={`${path}/cards`}>
           <SubCard></SubCard>
-        </Route>
-        <Route path={`${path}/wallet`}>
+        </PrivateRoute>
+        <PrivateRoute path={`${path}/wallet`}>
           <SubWallet></SubWallet>
-        </Route>
-        <Route path={`${path}/profile`}>
+        </PrivateRoute>
+        <PrivateRoute path={`${path}/profile`}>
           <SubProfile></SubProfile>
-        </Route>
+        </PrivateRoute>
       </Switch>
       </Box>
     </Box>
