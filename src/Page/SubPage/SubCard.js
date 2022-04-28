@@ -1,6 +1,7 @@
 import StyleIcon from '@mui/icons-material/Style';
 import { Typography } from '@mui/material';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 const SubCard = () => {
@@ -27,7 +28,9 @@ const SubCard = () => {
             Click the button below to get started.
             </Typography>
             <div  className='col-6  '>
-               <button className="button-18 pt-3 pb-3" role="button">NEW SUBMISSION</button>
+                  <Link to="/submissions_service_new" style={{textDecoration:"none"}}>
+                   <button className="button-18 pt-3 pb-3" role="button" >NEW SUBMISSION</button>
+                   </Link>
            </div>
             </div>
         </div>

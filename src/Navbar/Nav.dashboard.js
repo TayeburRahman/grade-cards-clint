@@ -27,8 +27,8 @@ const NavDashboard = () => {
             </div>
          
             <div className='page__header__auth'> 
-                   <Link to="/Service"><Button variant="text" className='ButtonHeder-submit'> <GetAppIcon/>submit</Button></Link>
-                   <Button className='ButtonHeder-login ms-2'><PersonOutlineIcon/>log in</Button>
+                   <Link to="/submissions_service_new"><Button variant="text" className='ButtonHeder-submit'> <GetAppIcon/>submit</Button></Link>
+                   <Link to="/sing_in"><Button className='ButtonHeder-login ms-2'><PersonOutlineIcon/>log in</Button></Link>
             </div>
               </div>
         </div>

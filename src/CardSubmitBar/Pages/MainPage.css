@@ -6,7 +6,10 @@
   height: 300px;
   border-bottom: 2px solid #20bfb8;
 }
-
+.positionFixedBottom {
+  position: fixed !important;
+  bottom: 10px;
+}
 .logoContainer {
   padding: 25px 70px;
 }

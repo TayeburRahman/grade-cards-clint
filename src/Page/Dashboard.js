@@ -76,20 +76,20 @@ export default function Dashboard() {
            <Typography  className='textLeft' variant="h6" gutterBottom component="div">
              {user.displayName}
            </Typography>
-            <Link href="#" underline="hover">
+          
               <Button  className='textLeft' onClick={logOut}>
-             <Typography className='textLeft' variant="button" display="block" gutterBottom>
-              SING OUT
-            </Typography>
+               <Typography className='textLeft' variant="button" display="block" gutterBottom>
+                 SING OUT
+               </Typography>
              </Button>
-            </Link>
+            
          </div>
        </div>    
         <Divider />
           <Box>
           <Link className="mt-3" to={`${url}`} style={{ textDecoration: "none",color:'#3b3f42'}}>
               <Button  id="buttonHover" className="flexStart mt-3" variant="text">
-                 <Inventory2Icon className='ms-2 radio iconColor'></Inventory2Icon>
+                 <Inventory2Icon className='ms-2   iconColor'></Inventory2Icon>
                  <Typography variant="hsubtitle1" className='ms-3' display="block" gutterBottom style={{fontWeight:'500', color:'rgb(67 71 90)'}}>
                  Submissions
                  </Typography>

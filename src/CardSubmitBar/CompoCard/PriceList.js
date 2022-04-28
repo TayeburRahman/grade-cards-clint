@@ -1,16 +1,23 @@
 import { Typography } from '@mui/material';
 import React, { Fragment, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../../Firebase/Hook/useAuth';
 
 
 function  PriceList({price,length}) {
-  const [service, setService] = useState([]);
+  const {user,isLoading} = useAuth()
+  const [isService, setService] = useState([]);  
 
-  useEffect(() => {
-    fetch(" /product")
-      .then((res) => res.json())
-      .then((data) => setService(data));
-  }, []);
+// ------------------------------------   
+ 
+useEffect(() => {
+fetch(`http://localhost:5000/api/v1/submit/${user.email}`)
+  .then((res) => res.json())
+  .then((data) => setService(data));
+}, [isLoading]);
+
+
+ 
     return (
         <Fragment>
                 <div className='col-md-12 col-sm-12 text-left'
@@ -30,13 +37,13 @@ function  PriceList({price,length}) {
                 Service Level
                 </Typography>
                 <Typography className='text-right' variant="subtitle2" display="block" gutterBottom>
-                $20  / Card
+                {isService.submit?.service?.localPrice} / Card
                 </Typography>
               </div>  
               <div className='d-flex' 
               style={{ justifyContent: 'space-between', alignItems: 'center'}}
                >
-                 <Link to="/Service"
+                 <Link to="/submissions_service_new"
                  style={{ textDecoration: 'none', color:'#20BFB8'}}
                  >
                  <Typography variant="button" display="block" gutterBottom>
@@ -44,7 +51,7 @@ function  PriceList({price,length}) {
                 </Typography>
                  </Link>
                 <Typography className='text-right' variant="caption" display="block" gutterBottom>
-                $500 Max. Value Per Card
+                {isService.submit?.service?.price} Max. Value Per Card
                 </Typography>
               </div>  
               <br/>

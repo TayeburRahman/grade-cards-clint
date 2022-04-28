@@ -10,7 +10,7 @@ import './ServiceData.css';
 
 function AddedCardLast({value}) {
     const [cart, setCard] = useCart();
-   const [num, setNum] = React.useState(1);
+ 
  
  
     return (
@@ -52,16 +52,16 @@ function AddedCardLast({value}) {
                         }}
                          
                          >
-                             <Box className='col-md-2 col-sm-6'>
-                             <input
+                             <Box className=' '>
+                             {/* <input
                                style={{padding: '7.5px 7px', border: "1px solid rgb(199 199 199)",borderRadius: '4px'}}
                                type="number"
                                min={0}
                                max={100}
                                step={1}
                                value={num}
-                               onChange={e => setNum(e.target.value)}
-                             />
+                               onChange={e => handleChange(e.target.value,cart.id)}
+                             /> */}
                              </Box>
                              <Box className='col-md-1 col-sm-3'>
                              <img

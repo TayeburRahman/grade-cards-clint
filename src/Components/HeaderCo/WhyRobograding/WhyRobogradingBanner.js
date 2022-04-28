@@ -1,8 +1,9 @@
+import { Box, Typography } from '@mui/material';
 import React, { Fragment } from 'react';
-import bannerImg from '../../../image/Group+662.png'
-import { Box, Button, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
+import bannerImg from '../../../image/Group+662.png';
 import Navbars from '../../../Navbar/Navbars';
-import './WhyRobograding.css'
+import './WhyRobograding.css';
  
 const WhyRobogradingBanner = () => {
     return (
@@ -30,8 +31,10 @@ const WhyRobogradingBanner = () => {
                      </Typography>
                 </Box>
                 <Box className='textLeft'>
-                 <button class="button button1">Grade your cards with AI!</button>
-                </Box>
+                 <Link className='text-decoration' to='/dashboard'>
+                  <button className="button button1">Grade your cards with AI!</button>
+                 </Link>
+                 </Box> 
               </div>
               <div className='col-md-6 col-sm-12 col-lg-6 p-5 mt-5 mb-2 paddingDiv'>
                   <img

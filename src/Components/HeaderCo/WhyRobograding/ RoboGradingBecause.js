@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material';
 import React, { Fragment } from 'react';
-import { Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const AGSFuture =[
     {image: 'https://i.ibb.co/ch0V74M/future4.png',
@@ -63,8 +63,8 @@ const  RoboGradingBecause = () => {
                 </div>
                  ))}
                    
-                   <Nav.Link href="#pricing" className='menuText '><button className="button-34 p-3" role="button">Create an Account</button>
-                   </Nav.Link>
+                   <Link to="/register" className='menuText '><button className="button-34 p-3" role="button">Create an Account</button>
+                   </Link>
                </div>
           </div>
         </div> 

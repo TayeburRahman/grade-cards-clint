@@ -1,8 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
-import { Nav } from 'react-bootstrap';
-import './PriceingCompo.css'
-
+import { Link } from 'react-router-dom';
+import './PriceingCompo.css';
 const PriceingBanner = () => {
     return (
         <div className='priceingBanner'
@@ -23,7 +22,9 @@ const PriceingBanner = () => {
                  </Typography>
                  </div>
                  <Box className='mt-3 mb-5'>
-                      <button class="button button1">Grade your cards now!</button>
+                      <Link className='text-decoration' to='/dashboard'>
+                      <button className="button button1">Grade your cards now!</button>
+                      </Link>
                  </Box>
             </div>
         </div>

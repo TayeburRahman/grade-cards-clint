@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import cardPng from '../../../image/card.png'
+import cardPng from '../../../image/card.png';
 
 
 const Pric =[
@@ -80,7 +80,7 @@ const Pricing = () => {
               }
              </div>
              <Link className='text-decoration' to=''>
-             <button class="button-18 mt-5" role="button">Grade your Cards Now!</button>
+             <button className="button-18 mt-5" role="button">Grade your Cards Now!</button>
              </Link>
         </div>
         <div className='row mt-5 mb-5'
@@ -108,8 +108,8 @@ const Pricing = () => {
                  Taking Human Error Out Of Grading
                 </Typography> 
                 <div className=''>
-                <Link className='text-decoration  ' to=''>
-                <button class="button-18 mt-5" id="buttonBlack" role="button"
+                <Link className='text-decoration' to='/dashboard'>
+                <button className="button-18 mt-5" id="buttonBlack" role="button"
                 style={{background:'black', color:'white'}}
                 >Grade your Cards Now!</button>
                 </Link>

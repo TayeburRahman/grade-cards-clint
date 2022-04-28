@@ -5,7 +5,7 @@ import './MainPage.css'
 const CheckoutSteps = ({ shipping, service, payment ,cards, review}) => {
     return (
         <div className="checkout-progress d-flex justify-content-center mt-5">
-            {service ? <Link to='/service' className="float-right">
+            {service ? <Link to='/submissions_service_new' className="float-right">
                  <div className='d-grid gridItem'>
                      <div className="triangle2-active">
                       <i className="fas fa-chart-line"></i>
@@ -24,7 +24,7 @@ const CheckoutSteps = ({ shipping, service, payment ,cards, review}) => {
                  </div>
              </Link>}
 
-            {cards ? <Link to='/cards' className="float-right">
+            {cards ? <Link to='/submission_cards_new' className="float-right">
              <div className='d-grid gridItem'>
                 <div className="triangle2-active triangle2-active-Cards "><i className="fas fa-shopping-cart"></i></div>
                 <div className="step active-step">Cards</div>
@@ -37,7 +37,7 @@ const CheckoutSteps = ({ shipping, service, payment ,cards, review}) => {
                     <div className="triangle-incomplete"></div>
                 </div>
              </Link>}
-            {shipping ? <Link to='/shipping' className="float-right">
+            {shipping ? <Link to='/submission_shipping_new' className="float-right">
              <div className='d-grid gridItem'>
                 <div className="triangle2-active"><i className="fas fa-shipping-fast"></i></div>
                 <div className="step active-step">Shipping</div>
@@ -50,7 +50,7 @@ const CheckoutSteps = ({ shipping, service, payment ,cards, review}) => {
                     <div className="triangle-incomplete"></div>
                  </div>
              </Link>}
-            {payment? <Link to='/payment' className="float-right">
+            {payment? <Link to='/submission_payment_new' className="float-right">
              <div className='d-grid gridItem'>
                 <div className="triangle2-active"><i className="fas fa-money-check-alt"></i></div>
                 <div className="step active-step"> Payment</div>
@@ -64,7 +64,7 @@ const CheckoutSteps = ({ shipping, service, payment ,cards, review}) => {
                  </div>
              </Link>}
  
-            {review ? <Link to='/review' className="float-right">
+            {review ? <Link to='/submission_review_new' className="float-right">
                 <div className='d-grid gridItem'>
                       <div className="triangle2-active"><i className="far fa-edit"></i></div>
                      <div className="step active-step">Review</div>

@@ -39,7 +39,7 @@ const Navbarsfix = () => {
                <Nav.Link as={HashLink} to="#pricing" className='menuText'>About</Nav.Link>
                <Nav.Link as={HashLink} to="#pricing" className='menuText'>Blog</Nav.Link>
                <Nav.Link as={HashLink} to="#pricing" className='menuText'>Contact</Nav.Link>
-               <Nav.Link as={HashLink} to="/dashboard" className='menuText'><button class="button-34" role="button">Grade Cards</button>
+               <Nav.Link as={HashLink} to="/dashboard" className='menuText'><button className="button-34" role="button">Grade Cards</button>
                </Nav.Link>
              </Nav>
            </Navbar.Collapse>

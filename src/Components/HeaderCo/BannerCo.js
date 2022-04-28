@@ -1,8 +1,8 @@
+import { Box, Typography } from '@mui/material';
 import React from 'react';
-import { Box, Button, Typography } from '@mui/material';
- import Navbars from '../../Navbar/Navbars';
-import './BannerCo.css'
-import bannerImg from '../../image/mobail.png'
+import { Link } from 'react-router-dom';
+import bannerImg from '../../image/mobail.png';
+import './BannerCo.css';
 
 
 const BannerCo = () => {
@@ -22,9 +22,11 @@ const BannerCo = () => {
                         5,000+ happy collectors, same-day grading available.</Typography>
                         </Box>
                         <Box className='textLeft'>
-                         <button class="button button1"
-                         style={{background:'#5E5DF0', boxShadow: '0px 2px 10px -6px'}}
-                         >Grade Your Cards</button>
+                         <Link to="/dashboard">
+                              <button className="button button1"
+                              style={{background:'#5E5DF0', boxShadow: '0px 2px 10px -6px'}}
+                              >Grade Your Cards</button>
+                         </Link>
                         </Box>
                       </div>
                       <div className='col-md-6 col-sm-12 col-lg-6 p-5 mt-5 mb-2 paddingDiv'>

@@ -30,13 +30,13 @@ function App() {
             <Route path="/Priceing" component={Priceing}/>  
             <PrivateRoute path="/dashboard" component={DashboardHed}/>  
             <Route path="/feed" component={FeedDashboardPage}/> 
-            <Route path="/login" component={Login}/>  
+            <Route path="/sing_in" component={Login}/>  
             <Route path="/register" component={Register}/>  
-            <PrivateRoute path="/Service" component={Service}/>
-            <PrivateRoute path="/cards" component={Cart}/>
-            <PrivateRoute path="/payment" component={Payment}/>
-            <PrivateRoute path="/shipping" component={ShippingInfo}/>
-            <PrivateRoute path="/review" component={Review}/>
+            <PrivateRoute path="/submissions_service_new" component={Service}/>
+            <PrivateRoute path="/submission_cards_new" component={Cart}/>
+            <PrivateRoute path="/submission_payment_new" component={Payment}/>
+            <PrivateRoute path="/submission_shipping_new" component={ShippingInfo}/>
+            <PrivateRoute path="/submission_review_new" component={Review}/>
             <PrivateRoute path="/:cardID" component={FeedCardDtl}/>  
           </Switch>
           {/* <Footer></Footer> */}

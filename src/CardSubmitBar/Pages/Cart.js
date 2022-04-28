@@ -1,26 +1,28 @@
 import SearchIcon from '@mui/icons-material/Search';
-import { Button, Paper, Typography } from '@mui/material';
+import { Button, CircularProgress, Paper, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import useAuth from '../../Firebase/Hook/useAuth';
 import MetaData from '../../MetaData';
 import AddedCardLast from '../CompoCard/AddedCard';
 import CartDeta from '../CompoCard/CartDeta';
 import useCart from '../CompoCard/Hooks/useCart';
 import PriceList from '../CompoCard/PriceList';
-import user from "../Images/download (1).svg";
 import img from "../Images/download.svg";
 import CheckoutSteps from './CheckoutSteps';
 
 
 function  Cart() {
+  const {user} = useAuth()
   const [products, setProducts] = useState([]);
-   const [value, setValue] = useState('');
+  const [value, setValue] = useState('');
   const [displayProduct,setDisplayProduct] = useState([])
   const [cart, setCart] = useCart(); 
-  const [isUpdate, setIsUpdate] = useState(null);
-  const [orders, setOrders] = useState([{}]);
+  const [loading, setLoading] = useState(false)
+  let history = useHistory();
 
-// ------------------------------------   
+  
+// ------------------------------------------
   useEffect(() => {
      fetch("./Pockmon.json")
       .then((res) => res.json())
@@ -41,49 +43,29 @@ function  Cart() {
     );
     setDisplayProduct(matchedProducts);
   }
-// ---------------------------------------
-const onSubmit = (data) => {
-  console.log("data",data)
-  fetch("/review", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify(data),
-  })
-    .then((res) => res.json())
-    .then((result) => {
-      if (result.insertedId) {
-        alert("Your Order Successfully Send"); 
-      }
-    });
-};
-// ---------------------------------------
-  useEffect(() => {
-    fetch("https://pacific-escarpment-27904.herokuapp.com/allOder")
+// --------------------------------------- 
+  const handleClick =(data)=>{
+    setLoading(true)
+    let submit ={}
+    submit.cards = data; 
+    submit.price= price;
+    fetch(`http://localhost:5000/api/v1/submit/${user?.email}` ,{
+      method: "PATCH",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(submit),
+    })
       .then((res) => res.json())
-      .then((data) => setOrders(data));
-  }, [isUpdate]);
-
-  // -----------------------------------
-  const handleUpdateOrders = (id) => {
-    // console.log("id", id); 
-    // const url = `/${id._id}`;
-    // fetch(url, {
-    //   method: "PUT",
-    //   headers: { "content-type": "application/json" },
-    //   body: JSON.stringify(id),
-    // })
-    //   .then((res) => res.json())
-    //   .then((result) => {
-    //     if (result.modifiedCount) {
-    //       alert("Update Successful");
-    //       setIsUpdate(true);
-    //     } else {
-    //       setIsUpdate(false);
-    //     }
-    //   });
-  };
+      .then((result) => {
+        console.log('result',result)
+        if (result.massages) { 
+          setLoading(false)
+          history.push("/submission_shipping_new")
+        } else {
+           
+        }
+      });  
+   }
+   
 // ----------------------------------
     return (
       <div className='mainsection'>
@@ -168,8 +150,7 @@ const onSubmit = (data) => {
                <div>
                  <AddedCardLast
                  key='111'
-                 value={value}
-
+                 value={value} 
                  ></AddedCardLast>
                </div>
              </dib>
@@ -183,34 +164,36 @@ const onSubmit = (data) => {
             </div>
            </div>
           </div>
-
-        <div className='d-flex mt-5 mb-5'
+          <div className='d-grid' style={{justifyItems: 'center'}}>
+          <div className='d-flex mt-4 positionFixedBottom'
           style={{justifyContent: 'center'}}
-        >
-              <Link to='/Service'
-              style={{  textDecoration: 'none'}}
-              >
-                <Button variant="outlined" startIcon={ <i className="fas fa-backward"></i>}
-                 style={{padding: '10px 50px 10px 50px',  color: 'cornflowerblue'}}
-                >
-                </Button>
-              </Link>
-           {
-               cart.length ?
-               <Link to="/shipping"
-               style={{  textDecoration: 'none'}}
-               >
-               <Button variant="contained"
-               style={{    padding: '10px 50px 10px 50px', background:"rgba(32, 191, 184)",color: 'white', border: '0'}}
-                >Next</Button>
-               </Link>
-                :  
-                <Button disabled className='disabledBtn'
-                style={{padding: '10px 50px 10px 50px',  color: 'cornflowerblue'}}
-                > Next </Button>
-           }  
-            
-        </div>
+             >
+                  <Link to="/submissions_service_new" className="me-3">
+                    <Button className=' ' variant="contained" style={{ padding: '10px 50px 10px 50px', background:"rgb(156 156 156 / 57%)",color: '#323232', border: '0'}} >
+                      <Typography>Back</Typography> 
+                    </Button>
+                  </Link>
+                {
+                    cart.length ?
+                     <Button variant="contained"
+                     onClick={(e)=> handleClick(cart)} 
+                      style={{ padding: '10px 50px 10px 50px', background:"rgba(32, 191, 184)",color: 'white', border: '0'}}
+                      >
+                      {loading ? 
+                        <CircularProgress />
+                      :
+                       <Typography>Next</Typography> 
+                      }
+                     </Button>
+                     :  
+                     <Button disabled className='disabledBtn'
+                     style={{padding: '10px 50px 10px 50px',  color: 'cornflowerblue'}}
+                     > Next </Button>
+                }  
+                 
+             </div>
+          </div>
+ 
      </div>
     )
 }

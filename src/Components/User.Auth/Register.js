@@ -118,7 +118,7 @@ const Register = () => {
             </Button>
           </form>
           <br />
-          <NavLink style={{ textDecoration: "none" }} to="/login">
+          <NavLink style={{ textDecoration: "none" }} to="/sing_in">
             <Button variant="text"   sx={{ fontFamily: "Monospace", fontWeight: 1000 }}>Already Have an Account? Please LOGIN</Button>
           </NavLink>
         </Grid>

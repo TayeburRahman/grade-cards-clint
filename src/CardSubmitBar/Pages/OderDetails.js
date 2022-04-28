@@ -41,7 +41,7 @@ function  OderDetails() {
                 Select your payment method and enter details.
                 </p>
             </div>
-            <Link to="/payment">
+            <Link to="/submission_payment_new">
                <button id="checkout_btn" className="btn btn-primary btn-block"
                style={{    padding: '10px 50px 10px 50px'}}
                >

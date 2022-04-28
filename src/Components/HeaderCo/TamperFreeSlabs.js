@@ -1,17 +1,16 @@
-import { Container, ImageListItem, Typography } from '@mui/material';
-import React, { Fragment } from 'react';
-import ReactPlayer from 'react-player/youtube'
-import './Home.css'
-import homeCart1 from '../../image/homeCart1.jpg'
-import homeCart2 from '../../image/homeCart2.jpg'
-import homeCart3 from '../../image/homeCart3.jpg'
-import homeCart4 from '../../image/homeCart4.jpg'
-import Untitled from '../../image/Untitled-1.jpg'
-import teem from '../../image/team.jpg'
-
-import { Nav } from 'react-bootstrap';
+import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import Player from 'video-react/lib/components/Player';
+import React, { Fragment } from 'react';
+import ReactPlayer from 'react-player/youtube';
+import { Link } from 'react-router-dom';
+import homeCart1 from '../../image/homeCart1.jpg';
+import homeCart2 from '../../image/homeCart2.jpg';
+import homeCart3 from '../../image/homeCart3.jpg';
+import homeCart4 from '../../image/homeCart4.jpg';
+import teem from '../../image/team.jpg';
+import Untitled from '../../image/Untitled-1.jpg';
+import './Home.css';
+
 
 const  RoboGrading =[
     {
@@ -185,7 +184,7 @@ const TamperFreeSlabs = () => {
                 Our flagship mobile app is re-imagining the way cards and collectibles are graded and allows you to use our machine learning technology to instantly add and grade any Pokemon Card. Android App coming soon!                
                 </Typography>
                 <Box className=' '>
-                      <button class="button button1"
+                      <button className="button button1"
                       style={{background:'#1a2234'}}
                       >Download from App Store</button>
                 </Box>
@@ -260,8 +259,8 @@ const TamperFreeSlabs = () => {
                 </div>
                  ))}
                    
-                   <Nav.Link href="#pricing" className='menuText '><button className="button-34 p-3" role="button">Create an Account</button>
-                   </Nav.Link>
+                   <Link to="/register" className='menuText '><button className="button-34 p-3" role="button">Create an Account</button>
+                   </Link>
                </div>
           </div>
         </div> 

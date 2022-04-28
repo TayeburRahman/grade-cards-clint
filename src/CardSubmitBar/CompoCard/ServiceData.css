@@ -1,193 +1,216 @@
-#addres{
-  width: 100% !important;
-}
-#wt-95{
+#wt-95 {
   width: 95%;
 }
-#addresCostom{
-  width: 98%;
+.shippingButton {
+  display: flex;
+  justify-content: space-evenly;
 }
-.smallText{
-    color: rgba(0, 0, 0, 0.54);
-    font-size: 10px;
-    font-style: normal;
-    font-family: Roboto;
-    font-weight: 500;
-    line-height: 14px;
-    letter-spacing: 0.6px;
-    text-transform: uppercase;
+#phone {
+  width: 100%;
 }
-.lgSmallText{
-    margin: 0px;
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 1.0;
-    letter-spacing: 0.01071em;
-    text-align: left;
-    color: rgba(0, 0, 0, 0.54);
+#addres {
+  width: 100% !important;
 }
-.XlSmallText{
-    margin: 0px;
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-weight: 700;
-    font-size: 0.875rem;
-    line-height: 1.2;
-    letter-spacing: 0.01071em;
-    text-align: left;
+.customWidth {
+  width: 95%;
+  height: 42px;
 }
-.textField{
-  
+.smallText {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 10px;
+  font-style: normal;
+  font-family: Roboto;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
 }
-
+.lgSmallText {
+  margin: 0px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1;
+  letter-spacing: 0.01071em;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.54);
+}
+.XlSmallText {
+  margin: 0px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  letter-spacing: 0.01071em;
+  text-align: left;
+}
+.textField {
+}
 
 /* Readio card Style */
 :root {
-    --card-padding: 1em;
-    --card-radius: 0.5em;
-  
-    --radio-border-width: 2px;
-    --radio-size: 1.5em;
-  
-     --color-green: rgb(32, 191, 184);
-   }
-  
-  .card {
-      padding-left: 0;
-      padding-right: 0;
-    background-color: #fff;
-    border-radius: var(--card-radius);
-    position: relative;
+  --card-padding: 1em;
+  --card-radius: 0.5em;
+
+  --radio-border-width: 2px;
+  --radio-size: 1.5em;
+
+  --color-green: rgb(32, 191, 184);
+}
+
+.card {
+  padding-left: 0;
+  padding-right: 0;
+  background-color: #fff;
+  border-radius: var(--card-radius);
+  position: relative;
+}
+
+.card:hover {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.radio {
+  font-size: inherit;
+  margin: 0;
+  position: absolute;
+  right: calc(var(--card-padding) + var(--radio-border-width));
+  top: calc(var(--card-padding) + var(--radio-border-width));
+}
+
+.plan-details {
+  border: var(--radio-border-width) solid var(--color-gray);
+  border-radius: var(--card-radius);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  padding: var(--card-padding);
+  transition: border-color 0.2s ease-out;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  align-content: space-between;
+}
+.spanColor {
+  color: mediumspringgreen;
+}
+.font700 {
+  font-weight: 600;
+}
+.plan-cost {
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding: 0.5rem 0;
+}
+
+.slash {
+  font-weight: normal;
+}
+
+.plan-cycle {
+  font-size: 2rem;
+  font-variant: normal;
+  cursor: inherit;
+  text-decoration: none;
+}
+
+.radio::after {
+  border: rgb(6, 2, 255) !important;
+}
+.justifyContentEnd {
+  justify-content: end !important;
+  justify-items: end !important;
+}
+/* Stripe  */
+#stripButton {
+  width: 100%;
+  background: rgb(32, 191, 184);
+  color: white;
+  border: 0px;
+  box-shadow: 0px 1px 0px 0.6px rgb(133, 132, 132);
+}
+#stripButton:hover {
+  box-shadow: none;
+  background-color: rgb(22, 133, 128);
+}
+.stripSection {
+  margin: 50px 0px 0px 0px;
+}
+@media (min-width: 42em) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
   }
-  
-  .card:hover {
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
-  }
-  
+}
+
+@supports (-webkit-appearance: none) or (-moz-appearance: none) {
   .radio {
-    font-size: inherit;
-    margin: 0;
-    position: absolute;
-    right: calc(var(--card-padding) + var(--radio-border-width));
-    top: calc(var(--card-padding) + var(--radio-border-width));
-  }
-  
-  .plan-details {
+    -moz-appearance: none;
+    background: #fff;
     border: var(--radio-border-width) solid var(--color-gray);
-    border-radius: var(--card-radius);
+    border-radius: 50%;
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    padding: var(--card-padding);
-    transition: border-color 0.2s ease-out;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    align-content: space-between;
- }
-  .spanColor{
-      color: mediumspringgreen
-  }
- .font700{
-    font-weight: 600;
- }
-  .plan-cost {
-    font-size: 2.5rem;
-    font-weight: bold;
-    padding: 0.5rem 0;
-  }
-  
-  .slash {
-    font-weight: normal;
-  }
-  
-  .plan-cycle {
-    font-size: 2rem;
-    font-variant: normal;
-    cursor: inherit;
-    text-decoration: none;
+    height: var(--radio-size);
+    outline: none;
+    transition: background 0.2s ease-out, border-color 0.2s ease-out;
+    width: var(--radio-size);
   }
 
   .radio::after {
-    border: rgb(6, 2, 255) !important;
+    border: var(--radio-border-width) solid #fff;
+    border-top: 0;
+    border-left: 0;
+    content: "";
+    display: block;
+    height: 0.75rem;
+    left: 25%;
+    position: absolute;
+    top: 50%;
+    transform: rotate(45deg) translate(-50%, -50%);
+    width: 0.375rem;
   }
-  
-  /* Stripe  */
-  #stripButton{
-    width: 100%;
-    background: rgb(32, 191, 184);
-    color: white;
-    border: 0px;
-    box-shadow: 0px 1px 0px 1px rgb(133, 132, 132);
-  }
-  #stripButton:hover{
-    box-shadow:  none;
-    background-color: rgb(22, 133, 128);
 
+  .radio:checked {
+    background: var(--color-green);
+    border-color: var(--color-green);
+  }
 
-  }
-  .stripSection{
-    margin: 50px 0px 0px 0px;
-  }
-  @media (min-width: 42em) {
-    .grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  
-  @supports (-webkit-appearance: none) or (-moz-appearance: none) {
-    .radio {
-      -moz-appearance: none;
-      background: #fff;
-      border: var(--radio-border-width) solid var(--color-gray);
-      border-radius: 50%;
-      cursor: pointer;
-      height: var(--radio-size);
-      outline: none;
-      transition: background 0.2s ease-out, border-color 0.2s ease-out;
-      width: var(--radio-size);
-    }
-  
-    .radio::after {
-      border: var(--radio-border-width) solid #fff;
-      border-top: 0;
-      border-left: 0;
-      content: '';
-      display: block;
-      height: 0.75rem;
-      left: 25%;
-      position: absolute;
-      top: 50%;
-      transform: rotate(45deg) translate(-50%, -50%);
-      width: 0.375rem;
-    }
-  
-    .radio:checked {
-      background: var(--color-green);
-      border-color: var(--color-green);
-    }
-  
-    .card:hover .radio {
-      border-color: var(--color-dark-grey);
-    }
-  
-    .card:hover .radio:checked {
-      border-color: var(--color-green);
-    }
-  }
-  
-  .card:hover .plan-details {
+  .card:hover .radio {
     border-color: var(--color-dark-grey);
   }
-  
-  .radio:checked ~ .plan-details {
+
+  .card:hover .radio:checked {
     border-color: var(--color-green);
-    background:   none;
-    color: rgb(56, 56, 63);
-    border: 2px solid rgb(32, 191, 184);
   }
-  
-  .radio:focus ~ .plan-details {
-    box-shadow: 0 0 0 2px var(--color-dark-grey);
+}
+
+.card:hover .plan-details {
+  border-color: var(--color-dark-grey);
+}
+
+.radio:checked ~ .plan-details {
+  border-color: var(--color-green);
+  background: none;
+  color: rgb(56, 56, 63);
+  border: 2px solid rgb(32, 191, 184);
+}
+
+.radio:focus ~ .plan-details {
+  box-shadow: 0 0 0 2px var(--color-dark-grey);
+}
+
+@media only screen and (min-width: 768px) {
+  #addres {
+    width: 95% !important;
   }
- 
+  #phone {
+    width: 99%;
+  }
+  .shippingButton {
+    justify-content: flex-end;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .flexRevers {
+    flex-direction: column-reverse;
+  }
+}
