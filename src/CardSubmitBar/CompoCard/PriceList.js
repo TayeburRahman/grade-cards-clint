@@ -11,7 +11,7 @@ function  PriceList({price,length}) {
 // ------------------------------------   
  
 useEffect(() => {
-fetch(`http://localhost:5000/api/v1/submit/${user.email}`)
+fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/submit/${user.email}`)
   .then((res) => res.json())
   .then((data) => setService(data));
 }, [isLoading]);

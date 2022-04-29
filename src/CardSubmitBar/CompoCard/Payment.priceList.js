@@ -11,8 +11,6 @@ function  PaymentPriceList({promoFindPrice,cart}) {
   const price = cart?.length * 20; 
 // ------------------------------------   
  
- 
- 
     return (
         <Fragment>
                 <div className='col-12 text-left'

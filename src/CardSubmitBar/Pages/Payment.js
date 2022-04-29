@@ -6,6 +6,7 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import useAuth from '../../Firebase/Hook/useAuth'
 import MetaData from '../../MetaData'
+import { removeFromDb } from '../CompoCard/fakedb'
 import StripeCheckoutFrom from '../CompoCard/Hooks/StripeCheckoutFrom'
 import useCart from '../CompoCard/Hooks/useCart'
 import PaymentPriceList from '../CompoCard/Payment.priceList'
@@ -14,6 +15,7 @@ import img from "../Images/download.svg"
 import coin from '../Images/fjRxNJr.png'
 import paypel from '../Images/xxss_add_value_to_your_brand_with_online_coupons.png'
 import CheckoutSteps from './CheckoutSteps'
+import './MainPage.css'
 
 
 
@@ -25,7 +27,6 @@ const stripePromise = loadStripe('pk_test_51KMQpNAllsbPec2MljdIUAy8P2jFjlKR0SkpP
 function  Payment() {
   const [cart, setCart] = useCart(); 
   const [loading, setLoading] = useState(false) 
-  let history = useHistory();
   const {user} = useAuth() 
   const [clickCard,setClickCard] =useState(1)
   const [clickPaypal,setClickPaypal] =useState(0)
@@ -35,13 +36,16 @@ function  Payment() {
   const [promoMs, setPromoMs] = useState(false);
   const [promoValue, setPromoValue] = useState();
   const [promoFindPrice, setPromoFindPrice] = useState();
+  const [paymentId, setPaymentId] = useState('')
+  let history = useHistory();
+ 
  
 
 
  
   // ----------------------------
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/submit/${user?.email}`)
+    fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/submit/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setSubmit(data.submit));
     }, []);
@@ -94,11 +98,10 @@ function  Payment() {
 // ------------------------------
 const handleClick = (data) => { 
   setLoading(true)
-  let submit ={}
-  submit.payment = data;  
+  let submit ={} 
   submit.price = promoFindPrice ? promoFindPrice : prc;
   submit.promo = promoMs;
-  fetch(`http://localhost:5000/api/v1/submit/${user?.email}`,{
+  fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/submit/${user?.email}`,{
     method: "PATCH",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(submit)
@@ -108,6 +111,7 @@ const handleClick = (data) => {
       console.log('result',result)
       if (result.massages) { 
         setLoading(false)
+        removeFromDb()
         history.push("/submission_review_new")
       } else {
          
@@ -133,7 +137,7 @@ const handleClick = (data) => {
                     <h2>Submit Cards For Grading</h2>
                   </div>
                   <div className='CheckoutStepsMainPage'>
-                      <CheckoutSteps  Price cards shipping payment className=" "></CheckoutSteps>
+                      <CheckoutSteps  Price cards shipping payment></CheckoutSteps>
                   </div>
              </div>
              <div className='container lastSection d-grid' style={{justifyItems: 'center'}}>
@@ -263,13 +267,13 @@ const handleClick = (data) => {
                           {
                             clickCard === 1 ?(
                                <div className='col-md-12 col-sm-12 mb-5'>
-                                   <Typography variant=" " className='jss60 mb-4 text-left' gutterBottom component="div"> 
+                                   <Typography variant="" className='jss60 mb-4 text-left' gutterBottom component="div"> 
                                    Add debit / credit card
                                    </Typography>
                                   <div  className='col-md-12 col-sm-12'>
                                   {/* STP 2 : Stripe */}
                                   <Elements stripe={stripePromise}>
-                                    <StripeCheckoutFrom />
+                                    <StripeCheckoutFrom setPaymentId={setPaymentId} promoFindPrice={promoFindPrice}  prc={prc} />
                                   </Elements>
                                   </div>
                                </div>
@@ -285,6 +289,9 @@ const handleClick = (data) => {
                                    Instructions for how to pay with Collector Coin will be provided in the next step.
                                    All you need is a MetaMask crypto wallet
                                    </Typography>
+                                   <Typography variant="h6" className='mb-4 text-left' gutterBottom component="div"> 
+                                    Coming Soon
+                                   </Typography>
                                </div>
                             ): <></>
                           }
@@ -296,6 +303,9 @@ const handleClick = (data) => {
                                    </Typography>
                                    <Typography variant="body1" className='mb-4 text-left' gutterBottom component="div"> 
                                    You will be redirected to the PayPal site after reviewing your order.
+                                   </Typography>
+                                   <Typography variant="h6" className='mb-4 text-left' gutterBottom component="div"> 
+                                    Coming Soon
                                    </Typography>
                                </div>
                             ): <></>

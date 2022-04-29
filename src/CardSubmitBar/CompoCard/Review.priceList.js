@@ -15,9 +15,10 @@ function  ReviewPriceList({isCards}) {
 const handelOnClick =(data)=>{ 
   setLoading(true) 
   let orders = {}
-  orders.email = user.email
-  orders.submit = data
-  fetch("http://localhost:5000/api/v1/order",{
+  orders.status="PLACED"
+  orders.email=user.email
+  orders.submit=data
+  fetch("https://powerful-harbor-40804.herokuapp.com/api/v1/order",{
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(orders)
@@ -25,7 +26,7 @@ const handelOnClick =(data)=>{
     .then((res) => res.json())
     .then((result) => { 
       if (result.massages) {  
-        fetch(`http://localhost:5000/api/v1/submit/${isCards?.submit?._id}`, {
+        fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/submit/${isCards?.submit?._id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -51,9 +52,8 @@ const handelOnClick =(data)=>{
   const url = `https://pacific-escarpment-27904.herokuapp.com/deleteProduct/${id}`;
       
     }
- 
-
   // ------------------------ 
+  
 // ------------------------------------   
  
  
@@ -99,10 +99,10 @@ const handelOnClick =(data)=>{
                style={{ justifyContent: 'space-between', alignItems: 'center'}}
                 > 
                  <Typography variant="body2" display="block" gutterBottom>
-                  Payment Type {isCards?.submit?.payment}
+                  Payment 
                 </Typography>
                 <Typography className='text-right' variant="subtitle2" display="block" gutterBottom>
-                 {isCards?.submit?.pay? "Paid" : "No Paid"}
+                 {isCards?.submit?.payment?.card?.brand ? isCards?.submit?.payment?.card.brand : "No Paid"}
                 </Typography>
               </div>  
               <br/> <br/>

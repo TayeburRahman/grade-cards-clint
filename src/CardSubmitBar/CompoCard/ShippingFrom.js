@@ -18,7 +18,7 @@ function  ShippingFrom() {
       setLoading(true)
       let submit ={}
       submit.shipping = data; 
-      fetch(`http://localhost:5000/api/v1/submit/${user?.email}` ,{
+      fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/submit/${user?.email}` ,{
         method: "PATCH",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(submit),

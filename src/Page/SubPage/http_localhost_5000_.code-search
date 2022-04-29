@@ -1,0 +1,84 @@
+# Query: http://localhost:5000/
+# Flags: WordMatch RegExp
+# ContextLines: 1
+
+17 results - 11 files
+
+src/CardSubmitBar/CompoCard/PriceList.js:
+  13  useEffect(() => {
+  14: fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/submit/${user.email}`)
+  15    .then((res) => res.json())
+
+src/CardSubmitBar/CompoCard/Review.priceList.js:
+  20    orders.submit=data
+  21:   fetch("https://powerful-harbor-40804.herokuapp.com/api/v1/order",{
+  22      method: "POST",
+
+  28        if (result.massages) {  
+  29:         fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/submit/${isCards?.submit?._id}`, {
+  30            method: "DELETE",
+
+src/CardSubmitBar/CompoCard/ShippingFrom.js:
+  20        submit.shipping = data; 
+  21:       fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/submit/${user?.email}` ,{
+  22          method: "PATCH",
+
+src/CardSubmitBar/CompoCard/Hooks/StripeCheckoutFrom.js:
+  18    //   useEffect(()=>{
+  19:   //     fetch("https://powerful-harbor-40804.herokuapp.com/api/v1/create_payment",{
+  20    //           method: "POST",
+
+  53             submit.price = promoFindPrice ? promoFindPrice : prc; 
+  54:            fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/submit/${user?.email}`,{
+  55               method: "PATCH",
+
+src/CardSubmitBar/Pages/Cart.js:
+  51      submit.price= price;
+  52:     fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/submit/${user?.email}` ,{
+  53        method: "PATCH",
+
+src/CardSubmitBar/Pages/Payment.js:
+   47    useEffect(() => {
+   48:     fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/submit/${user?.email}`)
+   49        .then((res) => res.json())
+
+  103    submit.promo = promoMs;
+  104:   fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/submit/${user?.email}`,{
+  105      method: "PATCH",
+
+src/CardSubmitBar/Pages/Review.js:
+  19    useEffect(() => {
+  20:     fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/submit/${user?.email}`)
+  21        .then((res) => res.json())
+
+src/CardSubmitBar/Pages/Service.js:
+  23    useEffect(() => {
+  24:     fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/submit/${user?.email}`)
+  25        .then((res) => res.json())
+
+  36          if(!isService.length){
+  37:           fetch("https://powerful-harbor-40804.herokuapp.com/api/v1/submit",{
+  38              method: "POST",
+
+  52           }else if(isService === user.email){
+  53:           fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/submit/${user?.email}` ,{
+  54              method: "PATCH",
+
+src/Firebase/Hook/useFirebase.js:
+  110      console.log("user", user)
+  111:     fetch("https://powerful-harbor-40804.herokuapp.com/api/v1/users", {
+  112        method: method,
+
+src/Page/SubPage/Submissions.js:
+  15      useEffect(() => {
+  16:         fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/order/${user?.email}`)
+  17            .then((res) => res.json())
+
+src/Page/SubPage/SubProfile.js:
+  22    useEffect(() => {
+  23:     fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/users/${user.email}`)
+  24        .then((res) => res.json())
+
+  62      
+  63:     fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/users/${user.email}`, {
+  64        method: "PATCH",
