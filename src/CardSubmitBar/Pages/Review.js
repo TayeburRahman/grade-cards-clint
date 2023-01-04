@@ -17,7 +17,7 @@ function  Review() {
   const shipping = isCards?.submit?.shipping 
 
   useEffect(() => {
-    fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/submit/${user?.email}`)
+    fetch(`https://ags-card-server.onrender.com/api/v1/submit/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setCards(data));
     }, []);

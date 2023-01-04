@@ -13,7 +13,7 @@ const Submissions = () => {
     console.log(isOrder )
 
     useEffect(() => {
-        fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/order/${user?.email}`)
+        fetch(`https://ags-card-server.onrender.com/api/v1/order/${user?.email}`)
           .then((res) => res.json())
           .then((data) => setOrder(data?.order));
         }, []);

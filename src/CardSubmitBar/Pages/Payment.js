@@ -45,7 +45,7 @@ function  Payment() {
  
   // ----------------------------
   useEffect(() => {
-    fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/submit/${user?.email}`)
+    fetch(`https://ags-card-server.onrender.com/api/v1/submit/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setSubmit(data.submit));
     }, []);
@@ -101,7 +101,7 @@ const handleClick = (data) => {
   let submit ={} 
   submit.price = promoFindPrice ? promoFindPrice : prc;
   submit.promo = promoMs;
-  fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/submit/${user?.email}`,{
+  fetch(`https://ags-card-server.onrender.com/api/v1/submit/${user?.email}`,{
     method: "PATCH",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(submit)
@@ -187,7 +187,7 @@ const handleClick = (data) => {
                                         className="radio"
                                         name="plan"
                                         checked />
-                                     <div id="radioBoder" className="plan-details" id="plan-details"
+                                     <div id="radioBoder" className="plan-details" 
                                      style={{ justifyContent: 'center'}}
                                      >
                                         <img
@@ -211,7 +211,7 @@ const handleClick = (data) => {
                                         className="radio"
                                         name="plan"
                                         checked />
-                                     <div id="radioBoder" className="plan-details" id="plan-details"
+                                     <div id="radioBoder" className="plan-details" 
                                      style={{ justifyContent: 'center'}}
                                      >
                                         <img
@@ -233,7 +233,7 @@ const handleClick = (data) => {
                                         className="radio"
                                         name="plan"
                                         checked />
-                                     <div id="radioBoder" className=" checkmark plan-details" id="plan-details"
+                                     <div id="radioBoder" className=" checkmark plan-details"  
                                        style={{ justifyContent: 'center',padding:'-10px'}}
                                      >
                                        <img
