@@ -49,7 +49,7 @@ function  Cart() {
     let submit ={}
     submit.cards = data; 
     submit.price= price;
-    fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/submit/${user?.email}` ,{
+    fetch(`https://ags-card-server.onrender.com/api/v1/submit/${user?.email}` ,{
       method: "PATCH",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(submit),

@@ -1,5 +1,5 @@
 import {
-    createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile
+  createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeFirebase from "../FirebaseInit";
@@ -108,7 +108,7 @@ const useFirebase = () => {
     
     const user = { email, displayName, addres, phone, method};
     console.log("user", user)
-    fetch("https://powerful-harbor-40804.herokuapp.com/api/v1/users", {
+    fetch("https://ags-card-server.onrender.com/api/v1/users", {
       method: method,
       headers: {
         "content-type": "application/json",
