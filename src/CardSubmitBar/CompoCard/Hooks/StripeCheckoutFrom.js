@@ -16,7 +16,7 @@ function  StripeCheckoutFrom({promoFindPrice,prc, setPaymentId}) {
   //  const price = promoFindPrice? promoFindPrice : prc
   //   // --------------------------- 
   //   useEffect(()=>{
-  //     fetch("https://powerful-harbor-40804.herokuapp.com/api/v1/create_payment",{
+  //     fetch("https://ags-card-server.onrender.com/api/v1/create_payment",{
   //           method: "POST",
   //           headers: { "content-type": "application/json" },
   //           body: JSON.stringify({price}),
@@ -51,7 +51,7 @@ function  StripeCheckoutFrom({promoFindPrice,prc, setPaymentId}) {
           let submit ={}
            submit.payment = paymentMethod;  
            submit.price = promoFindPrice ? promoFindPrice : prc; 
-           fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/submit/${user?.email}`,{
+           fetch(`https://ags-card-server.onrender.com/api/v1/submit/${user?.email}`,{
              method: "PATCH",
              headers: { "content-type": "application/json" },
              body: JSON.stringify(submit)

@@ -20,7 +20,7 @@ const SubProfile = () => {
   // ------------------------------
 
   useEffect(() => {
-    fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/users/${user.email}`)
+    fetch(`https://ags-card-server.onrender.com/api/v1/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setUser(data));
   }, []);
@@ -60,7 +60,7 @@ const SubProfile = () => {
      }
 
     
-    fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/users/${user.email}`, {
+    fetch(`https://ags-card-server.onrender.com/api/v1/users/${user.email}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

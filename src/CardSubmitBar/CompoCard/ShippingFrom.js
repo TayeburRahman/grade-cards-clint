@@ -18,7 +18,7 @@ function  ShippingFrom() {
       setLoading(true)
       let submit ={}
       submit.shipping = data; 
-      fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/submit/${user?.email}` ,{
+      fetch(`https://ags-card-server.onrender.com/api/v1/submit/${user?.email}` ,{
         method: "PATCH",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(submit),
@@ -150,7 +150,7 @@ function  ShippingFrom() {
                    <div className='col-6 text-left'>
                         <label className='mb-2'>Zip Code</label> <br></br>
                          <input
-                         style={{padding:'7px'}}
+                         style={{padding:'7px', marginLeft:'4px'}}
                            required
                             name="zipCode"
                             id="password"
@@ -164,8 +164,7 @@ function  ShippingFrom() {
                             })}
                             className="customWidth"
                             type="password"
-                            placeholder=" Enter Zip Code"
-                            style={{marginLeft:'4px'}}
+                            placeholder=" Enter Zip Code" 
                          />
                    </div>
                 </div>

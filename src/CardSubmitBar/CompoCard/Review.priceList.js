@@ -18,7 +18,7 @@ const handelOnClick =(data)=>{
   orders.status="PLACED"
   orders.email=user.email
   orders.submit=data
-  fetch("https://powerful-harbor-40804.herokuapp.com/api/v1/order",{
+  fetch("https://ags-card-server.onrender.com/api/v1/order",{
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(orders)
@@ -26,7 +26,7 @@ const handelOnClick =(data)=>{
     .then((res) => res.json())
     .then((result) => { 
       if (result.massages) {  
-        fetch(`https://powerful-harbor-40804.herokuapp.com/api/v1/submit/${isCards?.submit?._id}`, {
+        fetch(`https://ags-card-server.onrender.com/api/v1/submit/${isCards?.submit?._id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
